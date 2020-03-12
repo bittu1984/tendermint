@@ -1,0 +1,23 @@
+{{ template "header.html" .}}
+<h1>Create Transaction</h1>
+<div class="panel panel-default col-sm-12">
+  <div class="panel-body">
+    {{ if .ErrorTitle}}
+    <p class="bg-danger">
+      {{.ErrorTitle}}: {{.ErrorMessage}}
+    </p>
+    {{end}}
+    <form class="form" action="/transaction/create" method="POST">
+      <div class="form-group">
+        <label for="title">Transaction Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" />
+      </div>
+      <div class="form-group">
+        <label for="content">Transaction Content</label>
+        <input type="text" name="content" class="form-control" id="content" placeholder="Transaction Content" />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+{{ template "footer.html" .}}
